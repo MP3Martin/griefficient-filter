@@ -14,8 +14,18 @@ def replaceOnLine(orig, char, replace, line):
   orig[line] = orig[line].replace(char, replace)
   return "\n".join(orig)
 
+def substring_after(s, delim):
+  if delim in s:
+    return s.partition(delim)[2]
+  else:
+    return s
+
 # - initial formating -
-griefficient = subprocess.check_output(['griefficient'], shell=True)
+try:
+  griefficient = subprocess.check_output(['griefficient'], shell=True)
+except:
+  raise Exception("Griefficinet is not installed, find tutorial at https://github.com/Odyssey346/Griefficient")
+
 out = griefficient
 out = f"{out}"
 out = out[2:]
@@ -50,7 +60,8 @@ else:
   try:
     mode = ARGS[1].lower()
   except:
-    raise Exception("Please enter mode (-w for whitelist and -b for blacklist)")
+    # raise Exception("Please enter mode (-w for whitelist and -b for blacklist)")
+    mode = "-b"
 
   if mode == "-w" or mode == "-b":
     pass
@@ -66,15 +77,16 @@ else:
   serverLines = serverLines.split("\n")
   tmpServerLines = []
   if mode == "-w":
+    # whitelist mode
     for line in serverLines:
-      if any(bad in line for bad in ignored):
+      if any(bad in substring_after(line, "(") for bad in ignored):
         tmpServerLines.append(line)
-    serverLines = "\n".join(tmpServerLines)
   else:
+    # blacklist mode
     for line in serverLines:
-      if not any(bad in line for bad in ignored):
+      if not any(bad in substring_after(line, "(") for bad in ignored):
         tmpServerLines.append(line)
-    serverLines = "\n".join(tmpServerLines)
+  serverLines = "\n".join(tmpServerLines)
 
   # - additional formating -
   if str.encode(serverLines) == b'':
