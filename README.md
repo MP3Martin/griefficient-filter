@@ -23,3 +23,6 @@ Runs [<img src="https://camo.githubusercontent.com/b079fe922f00c4b86f1b724fbc2e8
 
 - `python3 main.py -b 1.19.1 -grad`
   - **Shows all servers except** servers on version **1.19.1** and shows the servers gradually (on `ENTER` key press)
+  
+- `python3 main.py -b fkjhgvfnikhjdgndthj -grad`
+  - **Shows 100 servers** and shows them gradually (on `ENTER` key press)
