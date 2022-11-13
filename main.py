@@ -1,5 +1,6 @@
 # made by MP3Martin, licensed under MIT license
 # this is the worst code i have ever made
+# idk why i didn't parse the output and the reconstruct it again
 import subprocess
 import sys
 import os
@@ -7,6 +8,7 @@ import os
 # CONSTS
 COLOREND = "\x1b[0m"
 ARGS = sys.argv
+UPLINE = "\033[A"
 
 # FUNCTIONS
 def replaceOnLine(orig, char, replace, line):
@@ -19,6 +21,9 @@ def substring_after(s, delim):
     return s.partition(delim)[2]
   else:
     return s
+
+def cls():
+  print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
 
 # - initial formating -
 try:
@@ -74,6 +79,15 @@ else:
     ignored = "🕅🕅🕅🕅🕅🕅🕅🕅🕅🕅🕅🕅🕅🕅🕅🕅🕅"
   ignored = ignored.split(",")
 
+  try:
+    grad = ARGS[3]
+    if grad == "-grad":
+      grad = True
+    else:
+      grad = False
+  except:
+    grad = False
+
   serverLines = serverLines.split("\n")
   tmpServerLines = []
   if mode == "-w":
@@ -99,4 +113,18 @@ else:
   # - combine all *Lines -
   final = f"{firstLines}\n{serverLines}\n{lastLines}"
 
-print(final)
+grad_i = 0
+
+if not grad:
+  print(final)
+else:
+  print("\n\n\n\n\n\n\n\n")
+  for line in serverLines.split("\n"):
+    grad_i = grad_i + 1
+    # cls()
+    a = firstLines
+    b = "\n\n" + line + "\n\n"
+    c = lastLines.replace(str(resultCount),f"\x1b[0;33;40m#{grad_i} {COLOREND}of \x1b[0;36;40m{str(resultCount)}" ,1)
+    print(UPLINE+UPLINE+UPLINE+UPLINE+UPLINE+UPLINE+UPLINE+UPLINE+a+b+c)
+    if input(f"Press \x1b[0;33;40mENTER{COLOREND} to show \x1b[0;33;40mnext server{COLOREND}. Type \x1b[0;33;40mEND{COLOREND} and press \x1b[0;33;40mENTER{COLOREND} to \x1b[0;33;40mend the program{COLOREND}.").lower() == "end":
+      exit()
