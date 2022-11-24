@@ -9,7 +9,7 @@ Runs [<img src="https://camo.githubusercontent.com/b079fe922f00c4b86f1b724fbc2e8
 ## Installation
 
 - Install [<img src="https://camo.githubusercontent.com/b079fe922f00c4b86f1b724fbc2e8141c468794ce8adbc9b7456e5e1ad09c622/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f6769746875622e737667" alt="gh" width="18"/>](https://github.com/Odyssey346/Griefficient) **[Odyssey346/Griefficient](https://github.com/Odyssey346/Griefficient)**
-- Download main.py
+- Download [main.py](https://powernukkit.github.io/DownGit/#/home?url=https:%2F%2Fgithub.com%2FMP3Martin%2Fgriefficient-filter%2Fblob%2Fmain%2Fmain.py&directFile=1)
 
 ## Usage
 
