@@ -1,6 +1,6 @@
 # made by MP3Martin, licensed under MIT license
 # this is the worst code i have ever made
-# idk why i didn't parse the output and the reconstruct it again
+# idk why i didn't parse the output and then reconstruct it again
 import subprocess
 import sys
 import os
