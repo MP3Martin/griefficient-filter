@@ -29,3 +29,11 @@ Runs [<img src="https://camo.githubusercontent.com/b079fe922f00c4b86f1b724fbc2e8
   
 - `python3 main.py -g`
   - **Shows 100 servers** and shows them gradually (on `ENTER` key press)
+
+- `python3 main.py -g -pr`
+  - **Shows 100 servers** and shows them gradually (on `ENTER` key press)
+  - You can now connect to the currently shown server with this adress: `127.0.0.1`
+  - Pressing enter makes `127.0.0.1:25565` point to the new server and you don't have to copy-paste anything
+
+- `python3 main.py -g -pr -p 25566`
+- Same as the above example, but you connect to the currently shown server using `127.0.0.1:25566`
