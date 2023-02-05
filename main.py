@@ -140,20 +140,22 @@ def main():
         # start the proxy
         proxyProcess = Process(target=runProxy, args=('', port, (currentIp, currentPort)))
         proxyProcess.start()
-        addSpaces = ""
-        for _ in range(int(str(len(line) - os.get_terminal_size().columns).replace("-", "")) + 20):
-          addSpaces = addSpaces + " "
-        a = firstLines
-        b = "\n\n" + line + addSpaces + "\n\n"
-        c = f"\x1b[0;36;40m👉 \x1b[0;33;40m#{grad_i} \x1b[0mof \x1b[0;36;40m{str(resultCount)} \x1b[0mresults shown out of\x1b[0;36;40m 215187 \x1b[0mpossible results (blame Shodan)"
-        print(UPLINE+UPLINE+UPLINE+UPLINE+UPLINE+UPLINE+UPLINE+UPLINE+a+b+c)
-        if input(f"Press \x1b[0;33;40mENTER{COLOREND} to show \x1b[0;33;40mnext server{COLOREND}. Type \x1b[0;33;40mEND{COLOREND} and press \x1b[0;33;40mENTER{COLOREND} to \x1b[0;33;40mend the program{COLOREND}.").lower() == "end":
+      addSpaces = ""
+      for _ in range(int(str(len(line) - os.get_terminal_size().columns).replace("-", "")) + 20):
+        addSpaces = addSpaces + " "
+      a = firstLines
+      b = "\n\n" + line + addSpaces + "\n\n"
+      c = f"\x1b[0;36;40m👉 \x1b[0;33;40m#{grad_i} \x1b[0mof \x1b[0;36;40m{str(resultCount)} \x1b[0mresults shown out of\x1b[0;36;40m 215187 \x1b[0mpossible results (blame Shodan)"
+      print(UPLINE+UPLINE+UPLINE+UPLINE+UPLINE+UPLINE+UPLINE+UPLINE+a+b+c)
+      if input(f"Press \x1b[0;33;40mENTER{COLOREND} to show \x1b[0;33;40mnext server{COLOREND}. Type \x1b[0;33;40mEND{COLOREND} and press \x1b[0;33;40mENTER{COLOREND} to \x1b[0;33;40mend the program{COLOREND}.").lower() == "end":
+        if proxy:
           proxyProcess.kill()
-          exit()
+        exit()
+      if proxy:
         proxyProcess.kill()
         proxyProcess = None
 
-if __name__ == '__main__':
+if __name__ == "__main__":
   try:
     main()
   except KeyboardInterrupt:
