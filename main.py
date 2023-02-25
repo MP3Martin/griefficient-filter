@@ -22,21 +22,8 @@ parser.add_argument("-pr", "--proxy", dest="proxy", action="store_const", const=
 parser.add_argument("-p", "--port", dest="port", default=25565, help="the local proxy port (works only if --proxy is enabled) (default: 25565)", type=int)
 
 # CONSTS
-COLOREND = "\x1b[0m"
 ARGS = parser.parse_args()
-UPLINE = "\033[A"
-
-# FUNCTIONS
-def replaceOnLine(orig, char, replace, line):
-  orig = orig.split('\n')
-  orig[line] = orig[line].replace(char, replace)
-  return "\n".join(orig)
-
-def substring_after(s, delim):
-  if delim in s:
-    return s.partition(delim)[2]
-  else:
-    return s
+from modules.util import COLOREND, UPLINE
 
 # MAIN
 def main():

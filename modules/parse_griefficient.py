@@ -1,15 +1,5 @@
 import subprocess
-
-COLOREND = "\x1b[0m"
-def replaceOnLine(orig, char, replace, line):
-  orig = orig.split('\n')
-  orig[line] = orig[line].replace(char, replace)
-  return "\n".join(orig)
-def substring_after(s, delim):
-  if delim in s:
-    return s.partition(delim)[2]
-  else:
-    return s
+from modules.util import COLOREND, replaceOnLine, substring_after
 
 def main(parsedArgs: dict, command: list = ['griefficient']):
   mode = parsedArgs["mode"]
@@ -87,4 +77,4 @@ def main(parsedArgs: dict, command: list = ['griefficient']):
   return (final, serverLines, resultCount, firstLines)
 
 if __name__ == '__main__':
-    print("This is not a standalone program!")
+  print("This is not a standalone program!")
